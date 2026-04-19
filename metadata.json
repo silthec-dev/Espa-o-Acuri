@@ -1,0 +1,7 @@
+{
+  "name": "Espaço Acuri - Eventos de Luxo",
+  "description": "Site institucional completo para o Espaço Acuri em Jacareí - SP. Especializado em casamentos e eventos sociais de alto padrão integrados à natureza.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
