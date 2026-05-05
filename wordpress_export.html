@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço Acuri - Exportação para WordPress</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif !important;
+        }
+        
+        /* Custom Animations */
+        @keyframes slow-zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .animate-slow-zoom {
+            animation: slow-zoom 20s infinite alternate ease-in-out;
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900 overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-bold tracking-tighter text-white">
+                Espaço <span class="italic text-amber-200">Acuri</span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#inicio" class="text-white hover:text-amber-200 text-xs font-bold uppercase tracking-widest transition-colors">Início</a>
+                <a href="#o-espaco" class="text-white hover:text-amber-200 text-xs font-bold uppercase tracking-widest transition-colors">O Espaço</a>
+                <a href="#casamentos" class="text-white hover:text-amber-200 text-xs font-bold uppercase tracking-widest transition-colors">Casamentos</a>
+                <a href="#eventos" class="text-white hover:text-amber-200 text-xs font-bold uppercase tracking-widest transition-colors">Eventos</a>
+                <a href="#contato" class="px-6 py-2 bg-white text-stone-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-100 transition-all">Contato</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-stone-900 text-white p-8 space-y-6 flex flex-col border-t border-white/10 shadow-2xl">
+            <a href="#inicio" class="text-xl font-serif">Início</a>
+            <a href="#o-espaco" class="text-xl font-serif">O Espaço</a>
+            <a href="#casamentos" class="text-xl font-serif">Casamentos</a>
+            <a href="#eventos" class="text-xl font-serif">Eventos</a>
+            <a href="#galeria" class="text-xl font-serif">Galeria</a>
+            <a href="#contato" class="text-xl font-serif">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/id/111/1920/1080" alt="Espaço Acuri Paisagem" class="w-full h-full object-cover scale-105 animate-slow-zoom">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60"></div>
+        </div>
+        <div class="relative container mx-auto px-6 text-center text-white">
+            <div class="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
+                <span class="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-4">Jacareí • SP</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif leading-tight">O cenário perfeito para viver momentos inesquecíveis</h1>
+                <p class="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto font-light leading-relaxed">Um espaço rodeado pela natureza, com arquitetura encantadora e estrutura completa para celebrar histórias únicas.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+                    <a href="https://wa.me/5512992315250" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-4 bg-emerald-800 text-white rounded-full font-bold uppercase text-xs tracking-widest hover:bg-emerald-900 transition-all hover:scale-105 shadow-xl">Falar no WhatsApp</a>
+                    <a href="#contato" class="w-full sm:w-auto px-10 py-4 bg-white text-stone-900 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-stone-100 transition-all hover:scale-105 shadow-xl">Solicitar orçamento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="o-espaco" class="py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <span class="text-emerald-800 text-sm font-bold uppercase tracking-widest">Institucional</span>
+                        <h2 class="text-4xl md:text-5xl font-serif text-stone-900">O Espaço Acuri</h2>
+                    </div>
+                    <p class="text-lg text-stone-600 leading-relaxed font-light italic">"Transformando sonhos em realidade em meio à exuberância da mata atlântica."</p>
+                    <div class="space-y-6 text-stone-700 leading-relaxed">
+                        <p>Nascido do desejo de integrar celebrações à serenidade da natureza, o Espaço Acuri é mais do que um local de eventos; é um refúgio de exclusividade e bom gosto. Nossa proposta une sofisticação arquitetônica ao acolhimento de uma ampla área verde, proporcionando privacidade total para o seu dia especial.</p>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="flex items-start gap-3">
+                                <span class="mt-1 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                                <span class="text-sm font-medium">Ampla área verde preservada</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="mt-1 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                                <span class="text-sm font-medium">Arquitetura belíssima</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="mt-1 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                                <span class="text-sm font-medium">Exclusividade total</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="mt-1 text-emerald-700"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                                <span class="text-sm font-medium">Curadoria Lápis de Noiva</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://picsum.photos/id/10/800/1000" alt="Vista do Espaço" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weddings Section -->
+    <section id="casamentos" class="py-20 md:py-32 bg-stone-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
+                <span class="text-emerald-800 text-sm font-bold uppercase tracking-widest">O Grande Dia</span>
+                <h2 class="text-4xl md:text-6xl font-serif text-stone-900">Casamentos dos Sonhos</h2>
+                <p class="text-stone-600 text-lg font-light leading-relaxed">Transformamos o seu 'sim' em uma experiência sensorial inesquecível. Nossa estrutura foi milimetricamente pensada para acolher desde a preparação até a última música da recepção.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1 space-y-10">
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 rounded-xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-emerald-100">
+                            <div class="w-12 h-12 flex-shrink-0 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-stone-900 font-bold mb-1">Cerimônias</h4>
+                                <p class="text-sm text-stone-500">Área interna ou externa ao ar livre.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-emerald-100">
+                            <div class="w-12 h-12 flex-shrink-0 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-stone-900 font-bold mb-1">Salão</h4>
+                                <p class="text-sm text-stone-500">Espaço climatizado e elegante.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+                    <img src="https://picsum.photos/id/103/600/800" alt="Cerimônia" class="w-full h-[500px] object-cover rounded-3xl shadow-lg">
+                    <div class="flex flex-col gap-4">
+                        <img src="https://picsum.photos/id/102/600/400" alt="Salão" class="w-full h-1/2 object-cover rounded-3xl shadow-lg">
+                        <img src="https://picsum.photos/id/104/600/400" alt="Detalhes" class="w-full h-1/2 object-cover rounded-3xl shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="eventos" class="py-20 md:py-32 bg-stone-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8">
+                    <span class="text-emerald-500 text-sm font-bold uppercase tracking-widest">Multi-eventos</span>
+                    <h2 class="text-4xl md:text-5xl font-serif">Celebre cada fase da vida</h2>
+                    <p class="text-stone-400 text-lg leading-relaxed font-light">A versatilidade do Espaço Acuri permite criar atmosferas únicas para diversos tipos de celebrações, sempre com o conforto e o contato direto com a natureza.</p>
+                    <div class="grid sm:grid-cols-2 gap-8 pt-6">
+                        <div class="space-y-2 border-l-2 border-emerald-800 pl-6">
+                            <h3 class="text-xl font-bold">Corporativos</h3>
+                            <p class="text-sm text-stone-500">Treinamentos e confraternizações.</p>
+                        </div>
+                        <div class="space-y-2 border-l-2 border-emerald-800 pl-6">
+                            <h3 class="text-xl font-bold">Sociais</h3>
+                            <p class="text-sm text-stone-500">Aniversários e 15 anos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://picsum.photos/id/42/400/600" alt="Evento" class="rounded-2xl w-full h-[400px] object-cover">
+                    <img src="https://picsum.photos/id/45/400/600" alt="Evento" class="rounded-2xl w-full h-[400px] object-cover mt-12">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Section -->
+    <section id="galeria" class="py-20 md:py-32 bg-stone-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-serif text-stone-900 mb-12">Galeria de Inspirações</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <img src="https://picsum.photos/id/111/800/600" class="w-full aspect-square object-cover rounded-2xl shadow-md">
+                <img src="https://picsum.photos/id/112/800/600" class="w-full aspect-square object-cover rounded-2xl shadow-md">
+                <img src="https://picsum.photos/id/113/800/600" class="w-full aspect-square object-cover rounded-2xl shadow-md">
+                <img src="https://picsum.photos/id/114/800/600" class="w-full aspect-square object-cover rounded-2xl shadow-md">
+            </div>
+            <div class="mt-12">
+                <a href="https://www.instagram.com/espacoacuri/" target="_blank" class="text-emerald-800 font-bold uppercase text-xs tracking-widest">Siga-nos no Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-20 md:py-32 bg-stone-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+                <div class="lg:w-2/5 bg-emerald-900 p-12 text-white">
+                    <h2 class="text-4xl font-serif mb-6">Vamos conversar?</h2>
+                    <p class="text-emerald-100 mb-12">Estamos ansiosos para conhecer a sua história e ajudar a planejar o seu evento perfeito.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-emerald-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <p>(12) 99231-5250</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-3/5 p-12">
+                    <form class="space-y-6">
+                        <input type="text" placeholder="Nome Completo" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800">
+                        <input type="email" placeholder="E-mail" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800">
+                        <textarea placeholder="Sua Mensagem" rows="4" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800"></textarea>
+                        <button type="button" onclick="alert('Funcionalidade de e-mail requer configuração de servidor.')" class="w-full py-4 bg-emerald-800 text-white rounded-full font-bold uppercase tracking-widest hover:bg-emerald-900 shadow-xl transition-all">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-serif italic mb-8">Espaço Acuri</h2>
+            <p class="text-stone-500 text-sm">© 2026 Espaço Acuri. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5512992315250" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-11.7 8.38 8.38 0 0 1 3.8.9L21 3z"></path></svg>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow-md', 'py-4');
+                nav.classList.remove('bg-transparent', 'py-6');
+                document.querySelectorAll('#navbar a, #navbar button').forEach(el => {
+                    if (!el.classList.contains('bg-white')) el.classList.replace('text-white', 'text-stone-900');
+                });
+            } else {
+                nav.classList.remove('bg-white', 'shadow-md', 'py-4');
+                nav.classList.add('bg-transparent', 'py-6');
+                document.querySelectorAll('#navbar a, #navbar button').forEach(el => {
+                    if (!el.classList.contains('bg-white')) el.classList.replace('text-stone-900', 'text-white');
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
