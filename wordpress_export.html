@@ -235,11 +235,12 @@
                     </div>
                 </div>
                 <div class="lg:w-3/5 p-12">
-                    <form class="space-y-6">
-                        <input type="text" placeholder="Nome Completo" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800">
-                        <input type="email" placeholder="E-mail" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800">
-                        <textarea placeholder="Sua Mensagem" rows="4" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800"></textarea>
-                        <button type="button" onclick="alert('Funcionalidade de e-mail requer configuração de servidor.')" class="w-full py-4 bg-emerald-800 text-white rounded-full font-bold uppercase tracking-widest hover:bg-emerald-900 shadow-xl transition-all">Enviar Solicitação</button>
+                    <form id="contact-form" action="https://formspree.io/f/YOUR_ID_HERE" method="POST" class="space-y-6">
+                        <input type="text" name="nome" placeholder="Nome Completo" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800">
+                        <input type="email" name="email" placeholder="E-mail" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800">
+                        <textarea name="mensagem" placeholder="Sua Mensagem" rows="4" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-emerald-800"></textarea>
+                        <button type="submit" id="submit-btn" class="w-full py-4 bg-emerald-800 text-white rounded-full font-bold uppercase tracking-widest hover:bg-emerald-900 shadow-xl transition-all">Enviar Solicitação</button>
+                        <p id="form-status" class="hidden text-center text-sm font-bold"></p>
                     </form>
                 </div>
             </div>
@@ -284,6 +285,58 @@
         menuBtn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
+
+        // Formspree Integration
+        const form = document.getElementById("contact-form");
+        const status = document.getElementById("form-status");
+        const btn = document.getElementById("submit-btn");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            
+            // Validate Formspree ID
+            if (form.action.includes("YOUR_ID_HERE")) {
+                alert("Por favor, configure o seu ID do Formspree no código HTML para ativar o envio de e-mails.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = "Enviando...";
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Obrigado! Sua mensagem foi enviada com sucesso.";
+                    status.classList.remove('hidden', 'text-red-500');
+                    status.classList.add('text-emerald-800');
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Ops! Ocorreu um erro ao enviar sua mensagem.";
+                        }
+                        status.classList.remove('hidden', 'text-emerald-800');
+                        status.classList.add('text-red-500');
+                    })
+                }
+            }).catch(error => {
+                status.innerHTML = "Ops! Ocorreu um erro ao enviar sua mensagem.";
+                status.classList.remove('hidden', 'text-emerald-800');
+                status.classList.add('text-red-500');
+            }).finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = "Enviar Solicitação";
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
     </script>
 </body>
 </html>
